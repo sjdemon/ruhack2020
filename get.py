@@ -1,18 +1,28 @@
 from google.cloud import vision
+from google.cloud.vision import types
+import os
+import io
 
-pics = ['https://i.imgur.com/2EUmDJO.jpg', 'https://i.imgur.com/FPMomNl.png']
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'KEY.json'
+pics = ['https://i.imgur.com/2EUmDJO.jpg', 'https://i.imgur.com/FPMomNl.png',
+        'https://images.everydayhealth.com/images/diet-nutrition/how-many-calories-are-in-a-banana-1440x810.jpg']
+class Identify():
+    def __init__(self, pics):
+            self._pics = pics
+    def pics(self):
+        return self._pics
+    def Run(self):
+        client = vision.ImageAnnotatorClient()
+        image = vision.types.Image()
 
-client = vision.ImageAnnotatorClient()
-image = vision.types.Image()
+        for pic in pics:
+            image.source.image_uri = pic
+            resp = client.label_detection(image=image)
 
-for pic in pics:
-    image.source.image_uri = pic
-    response = client.face_detection(image=image)
+            labels = resp.label_annotations
 
-    print('=' * 79)
-    print('File: {pic}')
-    for face in response.face_annotations:
-        likelihood = vision.enums.Likelihood(face.surprise_likelihood)
-        vertices = [f'({v.x},{v.y})' for v in face.bounding_poly.vertices]
-        print(f'Face surprised: {likelihood.name}')
-        print(f'Face bounds: {",".join(vertices)}')
+            print("Labels")
+            for label in labels:
+                print(label.description)
+
+            print('=' * 79)
