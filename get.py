@@ -2,12 +2,14 @@ from google.cloud import vision
 from google.cloud.vision import types
 import os
 import io
+from google.cloud import storage
+import wget
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'KEY.json'
 
-pics = ['https://i.imgur.com/2EUmDJO.jpg', 'https://i.imgur.com/FPMomNl.png',
-        'https://images.everydayhealth.com/images/diet-nutrition/how-many-calories-are-in-a-banana-1440x810.jpg']
-
+# pics = ['https://i.imgur.com/2EUmDJO.jpg', 'https://i.imgur.com/FPMomNl.png',
+#         'https://images.everydayhealth.com/images/diet-nutrition/how-many-calories-are-in-a-banana-1440x810.jpg']
+pics = ['gs://ruhack2020/ingredients']
 
 class Identify():
     def __init__(self, pics):
@@ -31,6 +33,7 @@ class Identify():
                 print(label.description)
 
             print('=' * 79)
+
 
 
 items = Identify(pics)
