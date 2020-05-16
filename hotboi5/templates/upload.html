@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/css/uikit.min.css" />
+
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit-icons.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav class="uk-navbar-container uk-margin-auto" uk-navbar>
+            <div class="uk-navbar-left">
+
+                <ul class="uk-navbar-nav">
+                    <a class="uk-navbar-item uk-logo">Recipe Finder</a>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="home.html">HOME</a>
+                    </li>
+                    <li>
+                        <a href="about.html">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!--Parallax code-->
+        <div class="uk-background-cover uk-light uk-flex" uk-height-viewport="offset-top: true" uk-parallax="bgy: -300"
+            style="background-image: url('table.jpg');">
+            <div class="uk-width-1-1@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                <div class="js-upload uk-placeholder uk-text-center uk-form-width-large uk-position-center">
+                <span uk-icon="icon: cloud-upload"></span>
+                <span class="uk-text-middle">Drag a picture of your ingredients here or</span>
+                <div uk-form-custom>
+                    <input type="file" multiple>
+                    <span class="uk-link"> click to find it</span>
+                </div>
+            </div>
+
+            <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
+
+            <script>
+
+                var bar = document.getElementById('js-progressbar');
+
+                UIkit.upload('.js-upload', {
+
+                    url: '',
+                    multiple: true,
+
+                    beforeSend: function () {
+                        console.log('beforeSend', arguments);
+                    },
+                    beforeAll: function () {
+                        console.log('beforeAll', arguments);
+                    },
+                    load: function () {
+                        console.log('load', arguments);
+                    },
+                    error: function () {
+                        console.log('error', arguments);
+                    },
+                    complete: function () {
+                        console.log('complete', arguments);
+                    },
+
+                    loadStart: function (e) {
+                        console.log('loadStart', arguments);
+
+                        bar.removeAttribute('hidden');
+                        bar.max = e.total;
+                        bar.value = e.loaded;
+                    },
+
+                    progress: function (e) {
+                        console.log('progress', arguments);
+
+                        bar.max = e.total;
+                        bar.value = e.loaded;
+                    },
+
+                    loadEnd: function (e) {
+                        console.log('loadEnd', arguments);
+
+                        bar.max = e.total;
+                        bar.value = e.loaded;
+                    },
+
+                    completeAll: function () {
+                        console.log('completeAll', arguments);
+
+                        setTimeout(function () {
+                            bar.setAttribute('hidden', 'hidden');
+                        }, 1000);
+
+                        alert('Upload Completed');
+                    }
+
+                });
+
+            </script>
+        </div>
+    </body>
+</html>

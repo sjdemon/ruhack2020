@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>Search</title>
         <meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<!-- UIkit CSS -->
@@ -32,18 +32,17 @@
         </nav>
 
         <!--Parallax code-->
-        <div class="uk-background-cover uk-light uk-flex" uk-height-viewport="    offset-top: true" uk-parallax="bgy: -300"
+        <div class="uk-background-cover uk-light uk-flex" uk-height-viewport="offset-top: true" uk-parallax="bgy: -300"
             style="background-image: url('table.jpg');">
             <div class="uk-width-1-1@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
-                <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-                    <h1><span class="uk-text-background"></span></h1>
-                    <h1 class="uk-heading-medium uk-text-normal uk-text-center uk-text-primary">Find any recipe using one of the options below!</h1>
-                </div>
-                <p uk-margin>
-                    <a class="uk-button uk-button-default" href="search.html">Search</a>
-                    <a class="uk-button uk-button-primary" href="upload.html">Upload</a>
-                </p>
-            </div>  
+                <form method="post" enctype="multipart/form-data">
+                    <div class="uk-margin uk-position-center">
+                        <textarea class="uk-textarea uk-form-width-large" rows="5" placeholder="Enter your ingredients here, separated by commas!"></textarea>
+                        <p uk-margin>
+                            <button type="submit" class="uk-button uk-button-default">Submit</button>
+                        </p>
+                    </div>          
+                </form>
         </div>
     </body>
 </html>
