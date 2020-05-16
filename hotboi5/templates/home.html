@@ -1,50 +1,75 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Title</title>
+        <title>Recipe Finder</title>
         <meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<!-- UIkit CSS -->
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/css/uikit.min.css" />
 
     	<!-- UIkit JS -->
-    	<script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit.min.js></script>
-    	<script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit-icons.min.js></script>
+    	<script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit.min.js"></script>
+    	<script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit-icons.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     </head>
     <body>
     	<nav class="uk-navbar-container uk-margin-auto" uk-navbar>
-        <div class="uk-navbar-left">
+            <div class="uk-navbar-left">
 
-            <ul class="uk-navbar-nav">
-                <a class="uk-navbar-item uk-logo">Christopher Shim</a>
-        </div>
-        <div class="uk-navbar-right">
-            <ul class="uk-navbar-nav">
-                <li>
-                    <a href="#aboutme" uk-scroll>About Me</a>
-                </li>
-                <li>
-                    <a href="#skills" uk-scroll>Skills</a>
-                </li>
-                <li>
-                    <a href="#projects" uk-scroll>Projects</a>
-                </li>
-            </ul>
-
-        </div>
-    </nav>
-
-    <!--Parallax code-->
-    <div class="uk-background-cover uk-light uk-flex" uk-height-viewport="offset-top: true" uk-parallax="bgy: -300"
-        style="background-image: url('table.jpg');">
-        <div class="uk-width-1-1@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
-            <div uk-scrollspy="cls: uk-animation-slide-left; repeat: true">
-                <h1 class="uk-heading-large">Hello, I'm Christopher!</h1>
+                <ul class="uk-navbar-nav">
+                    <a class="uk-navbar-item uk-logo">Recipe Finder</a>
             </div>
-            <div uk-scrollspy="cls: uk-animation-slide-right; repeat: true">
-                <h2>Welcome to my personal website</h2>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="home.html">HOME</a>
+                    </li>
+                    <li>
+                        <a href="about.html">ABOUT</a>
+                    </li>
+                </ul>
             </div>
+        </nav>
+
+        <!--Parallax code-->
+        <div class="uk-background-cover uk-light uk-flex" uk-height-viewport="offset-top: true" uk-parallax="bgy: -300"
+            style="background-image: url('table.jpg');">
+            <div class="uk-width-1-1@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                <div class="uk-margin">
+                    <input class="uk-input" type="text" placeholder="Input">
+                </div>
+                <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
+                    <h2>Welcome to my personal website</h2>
+                </div>
+            </div>
+
+            <div class="js-upload" uk-form-custom>
+                <input type="file" multiple>
+                <button class="uk-button uk-button-primary" type="button" tabindex="-1">Select</button>
+            </div>
+
+            <form>
+                <p>
+                    <label>Name:</label> <input type="text">
+                    <label>Age:</label> <input type="text">
+                    <span class="remove">Remove</span>
+                </p>
+                <p>
+                    <span class="add">Add fields</span>
+                </p>
+            </form>
+
+            <script>
+                $(".add").click(function() {
+                $("form > p:first-child").clone(true).insertBefore("form > p:last-child");
+                return false;
+            });
+
+            $(".remove").click(function() {
+                $(this).parent().remove();
+            });
+            </script>
         </div>
-    </div>
+
     </body>
 </html>

@@ -1,9 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
-	<h1>bib memsa bout</h1>
-</body>
+    <head>
+        <title>Title</title>
+        <meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- UIkit CSS -->
+    	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/css/uikit.min.css" />
+
+    	<!-- UIkit JS -->
+    	<script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit.min.js"></script>
+    	<script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit-icons.min.js"></script>
+    </head>
+    <body>
+    	<nav class="uk-navbar-container uk-margin-auto" uk-navbar>
+            <div class="uk-navbar-left">
+
+                <ul class="uk-navbar-nav">
+                    <a class="uk-navbar-item uk-logo">Recipe Finder</a>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="home.html">HOME</a>
+                    </li>
+                    <li>
+                        <a href="about.html">ABOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="uk-background-cover uk-light uk-flex" uk-height-viewport="offset-top: true" uk-parallax="bgy: -300"
+            style="background-image: url('table.jpg');">
+            <ul uk-accordion>
+		    <li class="uk-open">
+		        <a class="uk-accordion-title" href="#">Item 1</a>
+		        <div class="uk-accordion-content">
+		            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		        </div>
+		    </li>
+		    <li>
+		        <a class="uk-accordion-title" href="#">Item 2</a>
+		        <div class="uk-accordion-content">
+		            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
+		        </div>
+		    </li>
+		    <li>
+		        <a class="uk-accordion-title" href="#">Item 3</a>
+		        <div class="uk-accordion-content">
+		            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
+		        </div>
+		    </li>
+			</ul>
+        </div>
+
+        <div class="js-upload" uk-form-custom>
+            <input type="file" multiple>
+            <button class="uk-button uk-button-default" type="button" tabindex="-1">Select</button>
+        </div>
+    </body>
 </html>
