@@ -4,7 +4,7 @@ RU HACKS 2020 SUBMISSION
 
 TEAM: H0T B0Y5 MEMBERS: CHRISTOPHER SHIM, JAOWAD SHAH, FARAZ JAMIL, NICOLAS LOUIE
 
-This git repository stores the final commit for our RU HACKS 2020 submission. The application, Recipe Finder, utilizing the Spoonacular API (https://spoonacular.com/) and the Google Cloud suite of products (https://cloud.google.com/); App Engine for deploying the web app, and Vision API to implement computer vision.
+This git repository stores the final commit for our RU HACKS 2020 submission. The application, Recipe Finder, utilizes the Spoonacular API (https://spoonacular.com/) and the Google Cloud suite of products (https://cloud.google.com/); App Engine for deploying the web app, and Vision API to implement computer vision.
 
 This is a submission for the Google Cloud competition category, and is noted in the DevPost submission by Faraz Jamil. This project utilized Python (Flask) and HTML using UIKit.
 
