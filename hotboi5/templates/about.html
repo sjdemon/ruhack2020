@@ -32,25 +32,27 @@
 
         <div class="uk-background-cover uk-light uk-flex" uk-height-viewport="offset-top: true" uk-parallax="bgy: -300"
             style="background-image: url('table.jpg');">
-            <ul uk-accordion>
-		    <li class="uk-open">
-		        <a class="uk-accordion-title" href="#">Item 1</a>
-		        <div class="uk-accordion-content">
-		            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		        </div>
-		    </li>
-		    <li>
-		        <a class="uk-accordion-title" href="#">Item 2</a>
-		        <div class="uk-accordion-content">
-		            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.</p>
-		        </div>
-		    </li>
-		    <li>
-		        <a class="uk-accordion-title" href="#">Item 3</a>
-		        <div class="uk-accordion-content">
-		            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.</p>
-		        </div>
-		    </li>
+            <ul uk-accordion = "collapsible: false" class="uk-position-large uk-position-center" >  
+                <li>
+                    <a class="uk-accordion-title" href="#">What is this about?</a>
+                    <div class="uk-accordion-content">
+                        <p>Due to COVID19 people are trapped in their homes and they need to eat.<br>
+                            This service allows for a user to simply put in items from their pantry and fridge and we automatically generate recipes that you can cook with them!
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <a class="uk-accordion-title" href="#">How does it work?</a>
+                    <div class="uk-accordion-content">
+                        <p>After you send us your current ingredients, we scour the internet automatically looking for recipes that can be made with your current items and list any remaining items you may need!</p>
+                    </div>
+                </li>
+                <li>
+                    <a class="uk-accordion-title" href="#">What if I'm not sure what something is?</a>
+                    <div class="uk-accordion-content">
+                        <p>If you are unsure about an item you have, upload a picture and using google vision API we can identify it for you and find recipes all the same!                                       </p>
+                    </div>
+                </li> 
 			</ul>
         </div>
 
