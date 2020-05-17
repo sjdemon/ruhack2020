@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+    <nav class="uk-navbar-container uk-margin-auto" uk-navbar>
+        <div class="uk-navbar-left">
+
+            <ul class="uk-navbar-nav">
+                <a class="uk-navbar-item uk-logo">Recipe Finder</a>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="{{ url_for("hello") }}">HOME</a>
+                </li>
+                <li>
+                    <a href="{{ url_for("faq") }}">FAQ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    {% for i in data %}
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+        <h3 class="uk-card-title">{{i["title"]}}</h3>
+        <p>Recipe Link:</p>
+        <p>Number of Missing Ingredients: {{i["missedIngredientCount"]}}</p>
+        {% set numMissing = i["missedIngredientCount"] %}
+        {% set missed = i["missedIngredients"] %}
+        <ul class="uk-list uk-list-bullet">
+            {% for j in range(numMissing) %}
+            <li><p>{{missed[j]["amount"]}} {{missed[j]["name"]}}</p></li>
+            {% endfor %}
+        </ul>
+        <div class="uk-card-media-top">
+            <img src={{ i["image"] }} alt="">
+        </div>
+        <p><span class="uk-margin-small-right" uk-icon="heart"></span> {{i["likes"]}}</p>
+        <div class="uk-card-body"></div>
+    </div>
+    <br>
+    {% endfor %}
+
+    </div>
+
+</body>
+
+</html>

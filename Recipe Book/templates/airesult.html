@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Title</title>
+        <meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- UIkit CSS -->
+    	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/css/uikit.min.css" />
+
+    	<!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit-icons.min.js"></script>
+    </head>
+    <body>
+    	<nav class="uk-navbar-container uk-margin-auto" uk-navbar>
+        <div class="uk-navbar-left">
+
+            <ul class="uk-navbar-nav">
+                <a class="uk-navbar-item uk-logo">Christopher Shim</a>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="#aboutme" uk-scroll>About Me</a>
+                </li>
+                <li>
+                    <a href="#skills" uk-scroll>Skills</a>
+                </li>
+                <li>
+                    <a href="#projects" uk-scroll>Projects</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    {% set dataSet = data["responses"] %}
+    {% for i in dataSet %}
+    {% for j in i["labelAnnotations"] %}
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+        <h3 class="uk-card-title"></h3>
+        <p>{{j["description"]}}</p>
+    </div>
+    <br>
+    {% endfor %}
+    {% endfor %}
+    </body>
+</html>
