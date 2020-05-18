@@ -21,16 +21,11 @@ import requests
 import os
 import os.path
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'RU hack 2020-d51bbb47001c.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'YOURGOOGLECREDENTIALS.json'
 
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
 # called `app` in `main.py`.
 app = Flask(__name__)
-
-APP_ROOT = os.path.dirname(os.path.abspath(__file__))
-UPLOAD_FOLD = '\Chris\Documents\Programming\Python\Recipe Book'
-UPLOAD_FOLDER = os.path.join(APP_ROOT, UPLOAD_FOLD)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/implicit')
 def implicit():
@@ -76,12 +71,12 @@ def imagesubmit():
                     ]
                 }
 
-        r = requests.post("https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDznLTP06V-vRpwp6HN_hguKi1aRCQCA5A", json=payload)
+        r = requests.post("https://vision.googleapis.com/v1/images:annotate?key=YOURGOOGLEAPIKEY", json=payload)
         b = r.json()
 
         for i in b["responses"]:
             ingredients = "&ingredients=" + i["labelAnnotations"][4]["description"]
-            apiRequest = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=44442630cdde49dc974fafce1a6ff239"
+            apiRequest = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=YOURAPIKEY"
             strings = apiRequest + ingredients + "&number=5"
         c = requests.get(strings)
         a = c.json()
@@ -120,12 +115,12 @@ def upload_blob():
                     ]
                 }
 
-        r = requests.post("https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDznLTP06V-vRpwp6HN_hguKi1aRCQCA5A", json=payload)
+        r = requests.post("https://vision.googleapis.com/v1/images:annotate?key=YOURGOOGLEAPIKEY", json=payload)
         b = r.json()
 
         for i in b:
             ingredients = i["labelAnnotations"][3]["description"]
-            apiRequest = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=44442630cdde49dc974fafce1a6ff239"
+            apiRequest = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=YOURAPIKEY"
             strings = apiRequest + ingredients + "5"
             c = requests.get(strings)
             a = c.json()
@@ -146,7 +141,7 @@ def searchByIngredients():
     """Return a friendly HTTP greeting."""
     if request.method == 'POST':
         ingredients = "&ingredients=" + request.form['ingredients']
-        apiRequest = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=44442630cdde49dc974fafce1a6ff239"
+        apiRequest = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=YOURAPIKEY"
         number = "&number=" + request.form['amount']
         strings = apiRequest + ingredients + number
         r = requests.get(strings)
